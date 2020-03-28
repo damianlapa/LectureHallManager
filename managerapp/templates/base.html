@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset = "utf-8">
+        <style>
+            body { background-color: black; color: ivory;}
+            table { border-collapse: collapse; }
+            table, tr, td, th { border: 2px solid ivory; padding: 5px;}
+            h1 { color: brown; }
+            h3 { color: orangered}
+            a { color: green; text-decoration: none; }
+            a:hover { color: lightgreen; }
+            tr:hover { background-color: dimgrey; cursor: pointer; }
+            footer { border-top: 1px solid #888; color: white; margin-top: 20px; font-style: italic; font-size: 11px; clear: both;}
+            #navigation {width: 200px; float: left}
+            #content {float: left;}
+
+        </style>
+        <title>
+        {% block title %}
+
+        {% endblock %}
+        </title>
+    </head>
+    <body>
+
+        {% block navigation %}
+        <div id="navigation">
+
+            <a href="/add-lecture-hall"><h2>Add lecture hall</h2></a>
+
+            <a href="/add-reservation"><h2>Add reservation</h2></a>
+
+            <a href="/halls"><h2>Our halls</h2></a>
+
+            <a href="/halls-availability"><h2>Check Availability</h2></a>
+
+            <a href="/hall/search"><h2>Search free hall</h2></a>
+
+
+
+        </div>
+        {% endblock %}
+
+        <div id="content">
+
+        {% block content %}
+        {% endblock %}
+
+        </div>
+
+        {% block footer %}
+        <footer>
+        	LHManager 2020
+        </footer>
+        {% endblock %}
+    </body>
+</html>

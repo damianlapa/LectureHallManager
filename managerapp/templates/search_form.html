@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}
+
+Search
+
+{% endblock %}
+
+{% block content %}
+
+<form method="post" action="">
+    {% csrf_token %}
+
+    <label>
+        Name:
+        <input name="name" type="text">
+    </label>
+    <label>
+        Minimum capacity:
+        <input name="capacity_min" type="number" min="1">
+    </label>
+    <label>
+        Maximum capacity:
+        <input name="capacity_max" type="number" min="1">
+    </label>
+    <label>
+        Projector:
+        <input type="checkbox" name="projector">
+    </label>
+    <label>
+        Day:
+        <input type="date" name="date">
+    </label>
+    <input type="submit" value="Search!">
+
+</form>
+
+{% endblock %}

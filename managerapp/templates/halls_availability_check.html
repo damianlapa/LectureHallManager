@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block title %}
+
+Lecture Halls
+
+{% endblock %}
+
+{% block content %}
+
+<h1>Lecture Halls availability at {{ date }}</h1>
+
+<table>
+    <th>Name</th>
+    <th>Capacity</th>
+    <th>Projector</th>
+    <th>Availability</th>
+
+    {% for hall in halls %}
+        <tr>
+            <td>{{ hall.name }}</td>
+            <td>{{ hall.capacity }}</td>
+            <td>
+                {% if hall.projector == True %} Yes {% endif %}
+                {% if hall.projector == False %} No {% endif %}
+            </td>
+            <td>
+                {% if not reservations %}
+                Yes
+                {% endif %}
+                {% for reservation in reservations %}
+                {% if reservation.lecture_hall_id == hall.id %}
+                No
+                {% else %}
+                Yes
+                {% endif %}
+                {% endfor %}
+
+            </td>
+        </tr>
+
+    {% endfor %}
+
+</table>
+
+{% endblock %}

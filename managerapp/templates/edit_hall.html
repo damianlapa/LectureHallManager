@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}
+
+Add new Lecture Hall
+
+{% endblock %}
+
+{% block content %}
+
+<form method="post" action="">
+    {% csrf_token %}
+
+    <label>
+        Name:
+        <input name="name" type="text" value="{{hall.name}}">
+    </label>
+    <label>
+        Capacity:
+        <input name="capacity" type="number" min="1" value="{{hall.capacity}}">
+    </label>
+    <label>
+        Is there a projector:
+        <input type="checkbox" name="projector" {% if hall.projector %} checked {% endif %}>
+    </label>
+    <input type="submit" value="Edit!">
+
+</form>
+
+{% endblock %}

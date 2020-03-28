@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %}
+
+Lecture Halls
+
+{% endblock %}
+
+{% block content %}
+
+<h1>Lecture Halls</h1>
+
+<table>
+    <th>Name</th>
+    <th>Capacity</th>
+    <th>Projector</th>
+
+    {% for hall in halls %}
+    <tr>
+        <td>{{ hall.name }}</td>
+        <td>{{ hall.capacity }}</td>
+        <td>
+            {% if hall.projector == True %} Yes {% endif %}
+            {% if hall.projector == False %} No {% endif %}
+        </td>
+        <td>
+            <a href="{% url 'edit-hall' hall.id %}">EDIT</a>
+        </td>
+        <td>
+            <a href="{% url 'delete-hall' hall.id %}">DELETE</a>
+        </td>
+
+    </tr>
+
+    {% endfor %}
+
+</table>
+
+{% endblock %}
